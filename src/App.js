@@ -21,12 +21,12 @@ function App() {
         <About />
       </section>
 
-      <section id="experience" className="py-20 bg-neutral-light">
-        <Experience />
-      </section>
-
       <section id="projects" className="py-20">
         <Projects />
+      </section>
+
+      <section id="experience" className="py-20 bg-neutral-light">
+        <Experience />
       </section>
 
       <section id="contact" className="py-20 bg-neutral-light">

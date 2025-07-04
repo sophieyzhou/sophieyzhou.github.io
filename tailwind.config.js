@@ -4,12 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#FFFCFA",     // soft background
-        primary: "#004225",        // dark green
-        secondary: "#93C572",      // light green
+        background: "#F6F5F4",     // soft background
+        primary: "#0A3D16",        // dark green
+        secondary: "#91BF91",      // light green
+        accent: "#EB9DA5",         // pink accent
         neutral: {
-          dark: "#48435C",         // muted dark
-          light: "#D8D6D9",        // muted light
+          dark: "#1B1816",         // muted dark
+          light: "#F6F5F4",        // muted light
         },
       },
       fontFamily: {
