@@ -1,43 +1,63 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (id) => {
+    const isHome = location.pathname === "/" || location.pathname === "/#hero";
+
+    if (isHome) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
+  const navItems = [
+    { label: "Home", id: "hero" },
+    { label: "About", id: "about" },
+    { label: "Projects", id: "projects" },
+    { label: "Experience", id: "experience" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-background shadow z-50">
-      {/* <nav className="max-w-6xl mx-auto pl-0 pr-3 py-4 flex justify-between items-center"> */}
       <nav className="w-full pl-1 pr-10 py-4 flex justify-between items-center">
-
-
-        
-        {/* Left side: Lilac image + name */}
+        {/* Left side: Lilac + name */}
         <div className="flex items-center space-x-3">
           <img
             src="/images/chinese_lilac.jpg"
             alt="Chinese Lilac"
             className="h-12 w-12 object-cover rounded-full"
           />
-          <a
-            href="#hero"
-            className="text-2xl font-header font-bold text-primary"
+          <button
+            onClick={() => handleNavClick("hero")}
+            className="text-2xl font-header font-bold text-primary hover:text-accent transition-colors duration-300"
           >
             Sophie Zhou
-          </a>
+          </button>
         </div>
 
-        {/* Navbar links */}
+        {/* Nav links */}
         <div className="space-x-6 text-lg font-body font-bold">
-          {["Home", "About", "Projects", "Experience", "Contact"].map((label) => (
-            <a
-              key={label}
-              href={`#${label.toLowerCase()}`}
+          {navItems.map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => handleNavClick(id)}
               className="relative text-neutral-dark transition-all duration-300 hover:text-accent
-              after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px]
-              after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px]
+                after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
             >
               {label}
-            </a>
+            </button>
           ))}
         </div>
-
       </nav>
     </header>
   );
