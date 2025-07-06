@@ -7,8 +7,8 @@ const projects = [
   {
     title: "IV Infusion Monitor",
     description: "A low-cost infusion monitoring system designed for hospitals in resource-limited settings.",
-    techStack: ["React", "Arduino", "Python", "Flask"],
-    github: "https://github.com/sophieyzhou/medical-device",
+    techStack: ["STM32 Hal", "TouchGFX", "C", "ST-LINK-V3"],
+    github: "https://github.com/teamflowmichigan/device-source-code",
     hasGithub: true,
     detailsPage: "/projects/medical-device",
   },
@@ -29,7 +29,7 @@ const projects = [
     detailsPage: "/projects/lavender-farm",
   },
   {
-    title: "Hydrogen Fuel Systems Optimizer",
+    title: "Hydrogen Grid Optimizer",
     description: "Optimizer that decides makes optimal choices of energy production on an integrated green energy grid to minimize costs.",
     techStack: ["Python", "Conda", "pyomo", "matplotlib"],
     github: "https://github.com/sophieyzhou/grid-load-balancing",
@@ -37,7 +37,7 @@ const projects = [
     detailsPage: "/projects/energy-optimizer",
   },
   {
-    title: "ODEs for Multi-Source Gravitational Orbits",
+    title: "Astronomical Orbital Model",
     description: "Models the behavior of astronomical objects in a multi-item system to account for gravitational force interaction using ordinary differential equations.",
     techStack: ["scipy", "matplotlib", "Python"],
     github: "https://github.com/sophieyzhou/astronomical-odes",
@@ -45,7 +45,7 @@ const projects = [
     detailsPage: "/projects/astronomical-odes",
   },
   {
-    title: "Biomedical Engineering Project Team Website",
+    title: "Project Team Website",
     description: "Designed and developed multi page website for biomedical engineering project team",
     techStack: ["JavaScript", "Typescript", "React", "CSS"],
     github: "",
