@@ -1,0 +1,47 @@
+{
+  "Languages": [
+    { "name": "Python", "logo": "/logos/python.png" },
+    { "name": "R", "logo": "/logos/R.svg" },
+    { "name": "C", "logo": "/logos/C.png" },
+    { "name": "C++", "logo": "/logos/cpp.png" },
+    { "name": "JavaScript", "logo": "/logos/js.png" },
+    { "name": "TypeScript", "logo": "/logos/ts.png" },
+    { "name": "Java", "logo": "/logos/java.png" },
+    { "name": "HTML", "logo": "/logos/html.png" },
+    { "name": "CSS", "logo": "/logos/css.png" },
+    { "name": "Tailwind CSS", "logo": "/logos/tailwind.png" }
+  ],
+  "Frameworks & Libraries": [
+    { "name": "React", "logo": "/logos/react.png" },
+    { "name": "Node.js", "logo": "/logos/node.png" },
+    { "name": "Django", "logo": "/logos/django.png" },
+    { "name": "Flask", "logo": "/logos/flask.png" },
+    { "name": "PyTorch", "logo": "/logos/pytorch.png" },
+    { "name": "TensorFlow", "logo": "/logos/tensorflow.png" },
+    { "name": "scikit-learn", "logo": "/logos/scikit.png" },
+    { "name": "Pandas", "logo": "/logos/pandas.png" },
+    { "name": "NumPy", "logo": "/logos/numpy.png" },
+    { "name": "scipy", "logo": "/logos/scipy.png" },
+    { "name": "Stan", "logo": "/logos/stan.png" },
+    { "name": "Matplotlib", "logo": "/logos/matplotlib.png" },
+    { "name": "Seaborn", "logo": "/logos/seaborn.svg" },
+    { "name": "Pyomo", "logo": "/logos/pyomo.png" }
+  ],
+  "Databases": [
+    { "name": "SQLite", "logo": "/logos/sqlite.png" },
+    { "name": "Databricks", "logo": "/logos/databricks.png" },
+    { "name": "BigQuery", "logo": "/logos/bigquery.webp" }
+  ],
+  "Tools & DevOps": [
+    { "name": "Git", "logo": "/logos/git.png" },
+    { "name": "VSCode", "logo": "/logos/vscode.webp" },
+    { "name": "Jupyter", "logo": "/logos/jupyter.png" },
+    { "name": "Xcode", "logo": "/logos/xcode.png" },
+    { "name": "npm", "logo": "/logos/npm.png" },
+    { "name": "Conda", "logo": "/logos/conda.png" },
+    { "name": "AWS", "logo": "/logos/aws.png" },
+    { "name": "STM32 HAL", "logo": "/logos/stm32.png" },
+    { "name": "TouchGFX", "logo": "/logos/touchgfx.svg" },
+    { "name": "Arduino", "logo": "/logos/arduino.png" }
+  ]
+}
