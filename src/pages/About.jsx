@@ -55,7 +55,8 @@ function About() {
             models for genetics, to developing financial strategy for Michigan’s 
             largest lavender farm. I thrive in dynamic, collaborative settings, 
             and outside of work, you'll find me reading memoirs, running by the 
-            lake, cooking elaborate meals, or listening to country music.
+            lake, cooking 
+            elaborate meals, or listening to country music.
           </p>
         </div>
       </div>

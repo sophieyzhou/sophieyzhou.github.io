@@ -15,7 +15,7 @@ const projects = [
   {
     title: "Bayesian Genetics Model",
     description: "Bayesian modeling for transcription factor binding site prediction using motif and ChIP-seq data.",
-    techStack: ["Python", "Scikit-learn", "Stan", "Jupyter"],
+    techStack: ["Python", "Stan", "Jupyter"],
     github: "https://github.com/sophieyzhou/ctcf-tf-binding",
     hasGithub: true,
     detailsPage: "/projects/genetics-ml",
@@ -81,6 +81,9 @@ function Projects() {
       id="projects"
       className="h-screen snap-start flex flex-col items-center justify-start px-8 py-16"
     >
+
+      <div className="border-t border-neutral-dark w-3/4 mb-12" />
+
       {/* Header linking to detailed view */}
       <Link to="/projects_detailed" className="mb-12 text-center">
         <h2 className="text-4xl md:text-5xl font-header font-bold text-primary underline hover:text-accent transition-colors duration-300">
