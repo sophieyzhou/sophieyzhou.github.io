@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes rotate-pause {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(15deg); } /* quick rotate */
+  20% { transform: rotate(0deg); }  /* rotate back */
+  100% { transform: rotate(0deg); } /* stay still */
+}
+
+.rotate-lilac {
+  animation: rotate-pause 8s ease-in-out infinite;
+}

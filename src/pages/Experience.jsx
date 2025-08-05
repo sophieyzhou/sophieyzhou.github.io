@@ -1,5 +1,6 @@
 import React from "react";
 import techStackData from "../data/techStackData.json";
+import Education from "../components/Education";
 
 function Experience() {
   return (
@@ -21,9 +22,7 @@ function Experience() {
           <h2 className="text-4xl font-header font-bold text-primary mb-8 underline text-center">
             Education
           </h2>
-          <p className="text-lg font-body text-neutral-dark text-center">
-            [Insert academic experience details or timeline here...]
-          </p>
+          <Education />
         </section>
 
         {/* Resume */}

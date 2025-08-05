@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Hero() {
   useEffect(() => {
@@ -14,7 +13,8 @@ function Hero() {
       data-aos="fade-in"
     >
       {/* Left side - text */}
-      <div className="flex-1 flex flex-col justify-start items-center md:items-start space-y-6 pl-8 md:pl-16 mt-[60vh] -translate-y-[100%]">
+      <div className="flex-1 flex flex-col justify-start items-center md:items-start 
+              space-y-6 pl-8 md:pl-16 mt-[60vh] -translate-y-[100%]">
         <p
           className="text-2xl md:text-3xl font-body text-neutral-dark text-center md:text-left"
           data-aos="fade-up"
@@ -23,7 +23,9 @@ function Hero() {
           Hi, my name is
         </p>
         <h1
-          className="text-8xl md:text-9xl font-header font-bold text-primary leading-tight tracking-wide text-center md:text-left"
+          className="text-8xl md:text-9xl font-header font-bold text-primary
+            leading-tight tracking-wide text-center md:text-left
+            transition-transform duration-300 transform hover:scale-110 cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="400"
         >
@@ -43,7 +45,8 @@ function Hero() {
         <img
           src="/images/chinese_lilac.jpg"
           alt="Chinese Lilac"
-          className="max-h-[650px] w-auto rounded-2xl object-cover"
+           className="max-h-[650px] w-auto rounded-2xl object-cover
+             transition-transform duration-300 transform rotate-[20deg] hover:scale-110"
           style={{ transform: "rotate(20deg)" }}
           data-aos="zoom-in"
           data-aos-delay="500"
