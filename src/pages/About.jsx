@@ -21,23 +21,27 @@ function About() {
         {/* Left: Photo(s) */}
         <div className="md:w-1/3 w-full flex justify-center items-center relative min-h-[20rem]">
           {/* Paris photo - background, larger, offset left */}
-          <div className="w-80 h-120 bg-primary rounded-xl p-2 absolute -left-16 -top-8 z-0">
-            <img
-              src="/images/Paris.JPG"
-              alt="Paris"
-              className="w-full h-full object-cover rounded-lg"
-            />
+          <div className="absolute -left-16 -top-8 z-0 transition-transform duration-300 hover:scale-105">
+            <div className="w-80 h-120 bg-primary rounded-xl p-2">
+              <img
+                src="/images/Paris.JPG"
+                alt="Paris"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
           </div>
 
           {/* Headshot - foreground, smaller, offset right */}
-          <div className="w-60 h-80 bg-primary rounded-xl p-2 absolute left-36 top-4 z-10">
-            <img
-              src="/images/headshot.jpeg"
-              alt="Headshot"
-              className="w-full h-full object-cover rounded-lg"
-            />
+          <div className="absolute left-36 top-4 z-10 transition-transform duration-300 hover:scale-105">
+            <div className="w-60 h-80 bg-primary rounded-xl p-2">
+              <img
+                src="/images/headshot.jpeg"
+                alt="Headshot"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
           </div>
-        </div>
+          </div>
 
         {/* Right: Text */}
         <div className="md:w-2/3 w-full text-lg md:text-xl font-body text-neutral-dark leading-relaxed">

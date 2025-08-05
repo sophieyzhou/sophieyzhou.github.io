@@ -1,58 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { projects } from "../data/projectsData";
 
-// Sample project data structure
-const projects = [
-  {
-    title: "IV Infusion Monitor",
-    description: "A low-cost infusion monitoring system designed for hospitals in resource-limited settings.",
-    techStack: ["STM32 Hal", "TouchGFX", "C", "ST-LINK-V3"],
-    github: "https://github.com/teamflowmichigan/device-source-code",
-    hasGithub: true,
-    detailsPage: "/projects/medical-device",
-  },
-  {
-    title: "Bayesian Genetics Model",
-    description: "Bayesian modeling for transcription factor binding site prediction using motif and ChIP-seq data.",
-    techStack: ["Python", "Stan", "Jupyter"],
-    github: "https://github.com/sophieyzhou/ctcf-tf-binding",
-    hasGithub: true,
-    detailsPage: "/projects/genetics-ml",
-  },
-  {
-    title: "Lavender Farm Financials",
-    description: "Built custom dashboards and strategic models for Michigan’s largest lavender farm.",
-    techStack: ["Excel", "Tableau", "Python"],
-    github: "",
-    hasGithub: false,
-    detailsPage: "/projects/lavender-farm",
-  },
-  {
-    title: "Hydrogen Grid Optimizer",
-    description: "Optimizer that decides makes optimal choices of energy production on an integrated green energy grid to minimize costs.",
-    techStack: ["Python", "Conda", "pyomo", "matplotlib"],
-    github: "https://github.com/sophieyzhou/grid-load-balancing",
-    hasGithub: true,
-    detailsPage: "/projects/energy-optimizer",
-  },
-  {
-    title: "Astronomical Orbital Model",
-    description: "Models the behavior of astronomical objects in a multi-item system to account for gravitational force interaction using ordinary differential equations.",
-    techStack: ["scipy", "matplotlib", "Python"],
-    github: "https://github.com/sophieyzhou/astronomical-odes",
-    hasGithub: true,
-    detailsPage: "/projects/astronomical-odes",
-  },
-  {
-    title: "Project Team Website",
-    description: "Designed and developed multi page website for biomedical engineering project team",
-    techStack: ["JavaScript", "Typescript", "React", "CSS"],
-    github: "",
-    hasGithub: false,
-    detailsPage: "/projects/flow-website",
-  },
-];
 
 function Projects() {
   const [current, setCurrent] = useState(0);
