@@ -1,13 +1,18 @@
 import React from 'react';
+import GitHubIcon from "../assets/git.svg";
+import LinkedInIcon from "../assets/linkedin.svg";
+import SpotifyIcon from "../assets/spotify.svg";
+import GoodreadsIcon from "../assets/goodreads.svg";
+
 
 const Contact = () => {
-  const email = "sophie@umich.edu";
+  const email = "sophiezy@umich.edu";
 
   const socialLinks = [
-    { icon: "/icons/linkedin.svg", url: "https://www.linkedin.com/in/sophiezy", label: "LinkedIn" },
-    { icon: "/icons/github.svg", url: "https://github.com/sophieyzhou", label: "GitHub" },
-    { icon: "/icons/goodreads.svg", url: "https://www.goodreads.com/yourprofile", label: "Goodreads" },
-    { icon: "/icons/spotify.svg", url: "https://open.spotify.com/user/yourprofile", label: "Spotify" },
+    { icon: GitHubIcon, url: "https://github.com/sophieyzhou", label: "GitHub" },
+    { icon: LinkedInIcon, url: "https://www.linkedin.com/in/sophiezy", label: "LinkedIn" },
+    { icon: GoodreadsIcon, url: "https://www.goodreads.com/user/show/157517607-sophie", label: "Goodreads" },
+    { icon: SpotifyIcon, url: "https://open.spotify.com/user/jslxgsjqlxodvwoqnp", label: "Spotify" },
   ];
 
   return (
@@ -26,17 +31,17 @@ const Contact = () => {
 
         <div>
           <h3 className="text-xl font-medium mb-4">Find me elsewhere:</h3>
-          <div className="flex justify-center space-x-6">
-            {socialLinks.map((link) => (
+          <div className="flex justify-center gap-6">
+            {socialLinks.map(({ icon: Icon, url, label }) => (
               <a
-                key={link.label}
-                href={link.url}
+                key={label}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-75 transition duration-200"
-                aria-label={link.label}
+                aria-label={label}
+                className="text-green-800 hover:text-green-400 transition-colors duration-200"
               >
-                <img src={link.icon} alt={link.label} className="w-6 h-6" />
+                <Icon className="w-6 h-6" />
               </a>
             ))}
           </div>
