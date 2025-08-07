@@ -58,21 +58,24 @@ const Professional = () => {
         Continuously seeking opportunities to drive deep impact at the intersection of engineering and strategy. My work spans consulting, software development, product management, and global health innovation—connected by a drive to solve complex problems with clarity and care.
       </p>
 
-      <div className="space-y-12">
+      <div className="relative border-l-2 border-neutral-dark/10 pl-6 space-y-16">
         {experiences.map((exp, index) => (
-          <div key={index} className="bg-background rounded-xl p-6 md:p-8 border border-neutral-dark/10 shadow">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-xl font-semibold text-primary">{exp.role}</h3>
-                <p className="text-neutral-dark">{exp.org} — <span className="italic">{exp.location}</span></p>
+          <div key={index} className="relative pl-6">
+            <div className="absolute -left-3 top-2 w-6 h-6 bg-primary border-2 border-white rounded-full shadow"></div>
+            <div className="bg-background p-6 rounded-xl shadow border border-neutral-dark/10 w-full md:w-3/4">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-xl font-semibold text-primary">{exp.role}</h3>
+                  <p className="text-neutral-dark">{exp.org} — <span className="italic">{exp.location}</span></p>
+                </div>
+                <p className="text-sm text-neutral-medium whitespace-nowrap">{exp.time}</p>
               </div>
-              <p className="text-sm text-neutral-medium">{exp.time}</p>
+              <ul className="list-disc list-inside space-y-2 text-neutral-dark">
+                {exp.bullets.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
             </div>
-            <ul className="list-disc list-inside space-y-2 text-neutral-dark">
-              {exp.bullets.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
           </div>
         ))}
       </div>
