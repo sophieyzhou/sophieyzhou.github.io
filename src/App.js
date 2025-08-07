@@ -6,6 +6,7 @@ import Hero from "./pages/Hero";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 import ProjectsDetailed from "./pages/ProjectsDetailed";
 import Footer from "./pages/Footer";
 
@@ -26,15 +27,12 @@ function MainSite() {
         <Projects />
       </section>
 
-      <section id="experience" className="py-20 bg-neutral-light">
+      <section id="experience" className="py-20">
         <Experience />
       </section>
 
-      <section id="contact" className="py-20 bg-neutral-light">
-        <div className="text-center">
-          <h2 className="text-3xl font-header">Let’s Connect</h2>
-          <p className="mt-4">Email me at sophie@umich.edu</p>
-        </div>
+      <section id="contact" className="py-20">
+        <Contact />
       </section>
 
       <Footer />
