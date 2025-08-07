@@ -9,7 +9,7 @@ export const projects = [
   },
   {
     title: "Bayesian Genetics Model",
-    description: "Bayesian modeling for transcription factor binding site prediction using motif and ChIP-seq data.",
+    description: "Bayesian modeling for predicting transcription factor binding site rates using motif and ChIP-seq data.",
     techStack: ["Python", "Stan", "Jupyter"],
     github: "https://github.com/sophieyzhou/ctcf-tf-binding",
     hasGithub: true,
