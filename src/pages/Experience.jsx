@@ -1,6 +1,6 @@
 import React from "react";
 import techStackData from "../data/techStackData.json";
-import Education from "../components/Professional";
+import Professional from "../components/Professional";
 import Education from "../components/Education";
 
 function Experience() {
@@ -10,9 +10,6 @@ function Experience() {
 
         {/* Professional Experience */}
         <section id="experience-professional">
-          <h2 className="text-4xl font-header font-bold text-primary mb-8 underline text-center">
-            Professional Experience
-          </h2>
           <Professional />
         </section>
 
