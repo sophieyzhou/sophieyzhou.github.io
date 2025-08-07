@@ -24,7 +24,7 @@ function About() {
           <div className="absolute -left-16 -top-8 z-0 transition-transform duration-300 hover:scale-105">
             <div className="w-80 h-120 bg-primary rounded-xl p-2">
               <img
-                src="/images/Paris.JPG"
+                src="/images/paris.JPG"
                 alt="Paris"
                 className="w-full h-full object-cover rounded-lg"
               />
