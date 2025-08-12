@@ -36,7 +36,7 @@ function Hero() {
           // data-aos="fade-up"
           // data-aos-delay="400"
         >
-          I'm a student, engineer, strategist, designer, and part-time chef
+          I'm a student, engineer, strategist, and 
         </p>
       </div>
 
