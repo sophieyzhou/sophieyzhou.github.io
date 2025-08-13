@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1f848fe6.css",
+    "main.js": "/static/js/main.62cff433.js",
+    "static/js/488.290065da.chunk.js": "/static/js/488.290065da.chunk.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/goodreads_dark.svg": "/static/media/goodreads_dark.63998a50d3a127a7f6fd4fd558b2ca58.svg",
+    "static/media/goodreads_light.svg": "/static/media/goodreads_light.43e77a708e935d898224f9727a4107ab.svg",
+    "static/media/git_dark.svg": "/static/media/git_dark.68e83fe661953cca9209f1cc89fcd3cf.svg",
+    "static/media/git_light.svg": "/static/media/git_light.d586be0ec6bf1c6867309283937d95ea.svg",
+    "static/media/linkedin_dark.svg": "/static/media/linkedin_dark.1022e01d75d2713d8641c29860aaa0b1.svg",
+    "static/media/linkedin_light.svg": "/static/media/linkedin_light.cbd3979e41046ee37f973de6ebc1cb23.svg",
+    "static/media/spotify_dark.svg": "/static/media/spotify_dark.2613bec4c04ead4e31861ae021974e0b.svg",
+    "static/media/spotify_light.svg": "/static/media/spotify_light.43cbf9718d0b7fa3c6ece9aa4d059329.svg",
+    "index.html": "/index.html",
+    "main.1f848fe6.css.map": "/static/css/main.1f848fe6.css.map",
+    "main.62cff433.js.map": "/static/js/main.62cff433.js.map",
+    "488.290065da.chunk.js.map": "/static/js/488.290065da.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f848fe6.css",
+    "static/js/main.62cff433.js"
+  ]
+}
