@@ -46,9 +46,8 @@ function About() {
         {/* Right: Text */}
         <div className="md:w-2/3 w-full text-lg md:text-xl font-body text-neutral-dark leading-relaxed">
           <p>
-            Welcome! I'm Sophie. I grew up in Rochester, 
-            New York (go Bills!) and I'm now a senior at the University of Michigan
-            studying Computer Science with minors in Statistics and
+            Welcome! I'm Sophie. I'm a senior at the University of Michigan
+            studying Computer Science with minors in Math, Statistics, and
             Multidisciplinary Design. I’m passionate about using analytical 
             thinking to solve complex problems in medicine and energy.
           </p>
@@ -57,10 +56,17 @@ function About() {
             My technical background and personal interests have taken me from 
             designing low-cost medical devices, to building machine learning 
             models for genetics, to developing financial strategy for Michigan’s 
-            largest lavender farm. I thrive in dynamic, collaborative settings, 
-            and outside of work, you'll find me reading memoirs, running by the 
-            lake, cooking 
-            elaborate meals, or listening to country music.
+            largest lavender farm. In my professional life, I've worked across ops
+            at an ed-tech startup, webdev for an energy nonprofit, and most 
+            recently, pharma-retail product optimization at BCG. 
+            </p>
+          <br />
+          <p>
+            I thrive in dynamic, collaborative settings, 
+            and outside of work, you'll find me reading memoirs, running by the
+             river, dropping off elaborate baked goods on friends' porches, 
+            or listening to country music. I’m looking to join an interdisciplinary 
+            team where I can model, build, and ship with impact.
           </p>
         </div>
       </div>

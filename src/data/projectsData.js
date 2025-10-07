@@ -8,7 +8,7 @@ export const projects = [
     detailsPage: "/projects/medical-device",
   },
   {
-    title: "Bayesian Genetics Model",
+    title: "Trancription Factor Binding Sites Model",
     description: "Bayesian modeling for predicting transcription factor binding site rates using motif and ChIP-seq data.",
     techStack: ["Python", "Stan", "Jupyter"],
     github: "https://github.com/sophieyzhou/ctcf-tf-binding",
@@ -16,16 +16,8 @@ export const projects = [
     detailsPage: "/projects/genetics-ml",
   },
   {
-    title: "Lavender Farm Financials",
-    description: "Built custom dashboards and strategic models for Michigan’s largest lavender farm.",
-    techStack: ["Excel", "Tableau", "Python"],
-    github: "",
-    hasGithub: false,
-    detailsPage: "/projects/lavender-farm",
-  },
-  {
     title: "Hydrogen Grid Optimizer",
-    description: "Optimizer that decides makes optimal choices of energy production on an integrated green energy grid to minimize costs.",
+    description: "Optimizer that makes cost minimizing energy generation decisions on a hydrogen storage integrated grid.",
     techStack: ["Python", "Conda", "pyomo", "matplotlib"],
     github: "https://github.com/sophieyzhou/grid-load-balancing",
     hasGithub: true,
@@ -46,5 +38,13 @@ export const projects = [
     github: "https://github.com/sophieyzhou/teamflow.github.io",
     hasGithub: true,
     detailsPage: "/projects/flow-website",
+  },
+  {
+    title: "Lavender Farm Financials",
+    description: "Built cost allocation models for Michigan’s largest lavender farm.",
+    techStack: ["Excel", "Tableau", "Python"],
+    github: "",
+    hasGithub: false,
+    detailsPage: "/projects/lavender-farm",
   },
 ];
