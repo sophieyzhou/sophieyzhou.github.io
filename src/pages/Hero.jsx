@@ -9,51 +9,72 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="h-screen flex flex-col md:flex-row items-start justify-center gap-x-16 px-8 pt-4 pb-8 bg-background relative"
+      className="
+        min-h-[100svh]
+        flex flex-col md:flex-row
+        items-center md:items-center justify-center
+        gap-x-[clamp(1rem,6vw,5rem)]
+        px-[clamp(1rem,5vw,3rem)]
+        py-[clamp(1rem,6vh,3rem)]
+        bg-background relative
+      "
       data-aos="fade-in"
     >
       {/* Left side - text */}
-      <div className="flex-1 flex flex-col justify-start items-center md:items-start 
-              space-y-6 pl-8 md:pl-16 mt-[60vh] -translate-y-[100%]">
+      <div
+        className="
+          flex-1 flex flex-col justify-center
+          items-center md:items-start
+          gap-[clamp(0.75rem,2.5vh,1.75rem)]
+        "
+      >
         <p
-          className="text-2xl md:text-3xl font-body text-neutral-dark text-center md:text-left"
+          className="
+            font-body text-neutral-dark text-center md:text-left
+            text-[clamp(1rem,2.5vw,1.75rem)]
+          "
           data-aos="fade-up"
           data-aos-delay="200"
         >
           Hi, my name is
         </p>
+
         <h1
-          className="text-8xl md:text-9xl font-header font-bold text-primary
-            leading-tight tracking-wide text-center md:text-left
-            transition-transform duration-300 transform hover:scale-110 cursor-pointer"
+          className="
+            font-header font-bold text-primary leading-[0.95]
+            tracking-wide text-center md:text-left
+            text-[clamp(2.5rem,9vw,7rem)]
+            transition-transform duration-300 hover:scale-110 cursor-pointer
+          "
           data-aos="fade-up"
           data-aos-delay="400"
         >
           Sophie Zhou
         </h1>
+
         <p
-          className="text-lg md:text-xl font-body text-neutral-dark max-w-xl text-center md:text-left"
-          // data-aos="fade-up"
-          // data-aos-delay="400"
+          className="
+            font-body text-neutral-dark text-center md:text-left
+            text-[clamp(1rem,2.2vw,1.25rem)]
+            max-w-[min(70ch,100%)]
+          "
         >
-          I'm a student, engineer, strategist, and amateur chef
+          I'm a student, engineer, strategist, and hostess
         </p>
       </div>
 
-      {/* Right side - Lilac image */}
-      <div className="hidden md:flex flex-1 justify-center items-center mt-[-2rem]">
-        <img
-          src="/images/chinese_lilac.jpg"
-          alt="Chinese Lilac"
-           className="max-h-[650px] w-auto rounded-2xl object-cover
-             transition-transform duration-300 transform rotate-[20deg] hover:scale-110"
-          style={{ transform: "rotate(20deg)" }}
-          data-aos="zoom-in"
-          data-aos-delay="500"
-        />
+      {/* Right side - Lilac image */} 
+      <div className=
+        "hidden md:flex flex-1 justify-center items-center mt-[-2rem]"> 
+        <img src="/images/chinese_lilac.jpg" 
+            alt="Chinese Lilac" 
+            className="max-h-[650px] w-auto rounded-2xl object-cover 
+              transition-transform duration-300 transform rotate-[20deg] 
+              hover:scale-110" 
+            style={{ transform: "rotate(20deg)" }} 
+            data-aos="zoom-in" data-aos-delay="500" 
+        /> 
       </div>
-
-      
     </section>
   );
 }

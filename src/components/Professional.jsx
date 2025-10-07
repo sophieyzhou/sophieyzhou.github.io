@@ -5,12 +5,12 @@ const experiences = [
   {
     role: "Summer Associate",
     org: "Boston Consulting Group",
-    location: "New York, NY",
+    location: "Chicago, IL",
     time: "Summer 2025",
     bullets: [
-      "Advised Fortune 500 client on digital transformation across operations and supply chain.",
-      "Built executive dashboards and insights, projecting $20M in savings.",
-      "Conducted market sizing, competitor mapping, and stakeholder alignment."
+      "Engineered assortment optimizer for Fortune 500 client, lifting dead-net profit by 5%",
+      "Developed Databricks reporting to compare markets and quantify gains.",
+      "Translated merchandising goals into platform rules and feature specs."
     ]
   },
   {
@@ -41,9 +41,9 @@ const experiences = [
     location: "Ann Arbor, MI / Kumasi, Ghana",
     time: "Sept 2023 – Present",
     bullets: [
-      "Built IV drip rate monitor using ARM MCU with 80% cost savings.",
-      "Led user research at Ghanaian hospital, interviewing 20+ healthcare staff.",
-      "Secured $15K+ in grant funding through technical and equity-focused proposal."
+      "Built IV drip rate monitor using an STM32 MCU with 80% cost savings.",
+      "Led user research in Kumasi, Ghana, interviewing 20+ healthcare staff.",
+      "Secured $35K+ in grant funding through technical and equity-focused proposal."
     ]
   }
 ];
@@ -55,7 +55,7 @@ const Professional = () => {
         Professional Experience
       </h2>
       <p className="text-lg font-body text-neutral-dark text-center mb-12 max-w-3xl mx-auto">
-        Continuously seeking opportunities to drive deep impact at the intersection of engineering and strategy. My work spans consulting, software development, product management, and global health innovation—connected by a drive to solve complex problems with clarity and care.
+        Continuously seeking impact drive opportunities at the intersection of engineering and strategy. My work spans consulting, software, product, and global health innovation.
       </p>
 
       <div className="relative border-l-2 border-neutral-dark/10 pl-6 space-y-16">
