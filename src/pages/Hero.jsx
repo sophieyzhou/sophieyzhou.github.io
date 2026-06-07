@@ -59,7 +59,7 @@ function Hero() {
             max-w-[min(70ch,100%)]
           "
         >
-          I'm a student, engineer, strategist, and hostess
+          I'm an engineer, designer, and serial hobbyist
         </p>
       </div>
 

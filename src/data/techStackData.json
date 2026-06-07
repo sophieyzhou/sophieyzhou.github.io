@@ -4,6 +4,8 @@
     { "name": "R", "logo": "/logos/R.svg" },
     { "name": "C", "logo": "/logos/C.png" },
     { "name": "C++", "logo": "/logos/cpp.png" },
+    { "name": "Julia", "logo": "/logos/julia.jpeg" },
+    { "name": "MATLAB", "logo": "/logos/matlab.png" },
     { "name": "JavaScript", "logo": "/logos/js.png" },
     { "name": "TypeScript", "logo": "/logos/ts.png" },
     { "name": "Java", "logo": "/logos/java.png" },

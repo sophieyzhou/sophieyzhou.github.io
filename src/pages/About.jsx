@@ -46,7 +46,7 @@ function About() {
         {/* Right: Text */}
         <div className="md:w-2/3 w-full text-lg md:text-xl font-body text-neutral-dark leading-relaxed">
           <p>
-            Welcome! I'm Sophie. I'm a senior at the University of Michigan
+            Welcome! I'm Sophie. I'm a recent graduate at the University of Michigan
             studying Computer Science with minors in Math, Statistics, and
             Multidisciplinary Design. I’m passionate about using analytical 
             thinking to solve complex problems in medicine and energy.
@@ -64,9 +64,9 @@ function About() {
           <p>
             I thrive in dynamic, collaborative settings, 
             and outside of work, you'll find me reading memoirs, running by the
-             river, dropping off elaborate baked goods on friends' porches, 
+             lake, bringing baked goods to friends, 
             or listening to country music. I’m looking to join an interdisciplinary 
-            team where I can model, build, and ship with impact.
+            team where I can model, build, and drive impact.
           </p>
         </div>
       </div>

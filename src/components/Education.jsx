@@ -8,7 +8,7 @@ const Education = () => {
 
   const education = {
     university: "University of Michigan – College of Engineering",
-    degree: "B.S.E. in Computer Science",
+    degree: "B.S.E. in Computer Science, summa cum laude",
     minors: "Mathematics, Statistics, Multidisciplinary Design",
     honors: "University Honors (6x) · Dean’s List (3x)",
     duration: "August 2022 – May 2026",
