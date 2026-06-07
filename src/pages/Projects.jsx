@@ -1,88 +1,124 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { projects } from "../data/projectsData";
 
 function Projects() {
-  const [current, setCurrent] = useState(0);
-  const carouselRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
+  const total = projects.length;
 
-  // We create a "Triple Set" (Buffer | Real | Buffer) to simulate infinity
-  const extendedProjects = [...projects, ...projects, ...projects];
-  const totalCount = projects.length;
+  // Get the 3 visible indices: left, center, right
+  const getVisible = (center) => ({
+    left: (center - 1 + total) % total,
+    center: center,
+    right: (center + 1) % total,
+  });
 
-  // Initial setup: Scroll to the middle set instantly on load
+  const advance = useCallback(
+    (direction) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setActiveIndex((prev) =>
+        direction === "next" ? (prev + 1) % total : (prev - 1 + total) % total
+      );
+      setTimeout(() => setIsAnimating(false), 500);
+    },
+    [isAnimating, total]
+  );
+
+  // Auto-advance timer
   useEffect(() => {
-    if (carouselRef.current) {
-      const container = carouselRef.current;
-      const cardWidth = container.offsetWidth / 3; // 3 cards in view
-      // Jump to the start of the middle set
-      container.scrollLeft = cardWidth * totalCount;
+    if (!isPaused) {
+      timerRef.current = setInterval(() => advance("next"), 4000);
     }
-  }, [totalCount]);
+    return () => clearInterval(timerRef.current);
+  }, [isPaused, advance]);
 
-  const handleScroll = () => {
-    const container = carouselRef.current;
-    if (!container) return;
+  const { left, center, right } = getVisible(activeIndex);
 
-    const cardWidth = container.offsetWidth / 3;
-    const scrollLeft = container.scrollLeft;
-
-    // 1. Calculate Active Dot (Center Tracking)
-    // Find the center of the viewport
-    const centerPosition = scrollLeft + container.offsetWidth / 2;
-    // Determine which index is at that center point
-    const rawIndex = Math.floor(centerPosition / cardWidth);
-    // Map back to original 0-(N-1) index
-    const relativeIndex = rawIndex % totalCount;
-    
-    // Only update state if it changed to prevent unnecessary re-renders
-    if (relativeIndex !== current) {
-      setCurrent(relativeIndex);
+  const cardClasses = (role) => {
+    const base =
+      "rounded-2xl p-6 border flex flex-col justify-between transition-all duration-500 ease-in-out cursor-pointer select-none";
+    if (role === "center") {
+      return `${base} bg-white border-primary shadow-2xl scale-105 z-20`;
     }
-
-    // 2. Infinite "Teleport" Logic (The Loop)
-    // If we scroll into the 3rd set (Right Buffer), jump back to 2nd set
-    if (scrollLeft >= cardWidth * (totalCount * 2)) {
-      container.scrollLeft = scrollLeft - (cardWidth * totalCount);
-    }
-    // If we scroll into the 1st set (Left Buffer), jump forward to 2nd set
-    else if (scrollLeft <= cardWidth) {
-      container.scrollLeft = scrollLeft + (cardWidth * totalCount);
-    }
+    return `${base} bg-white border-neutral-dark/20 shadow-md scale-95 opacity-60 z-10`;
   };
 
-  const scrollByArrow = (direction) => {
-    const container = carouselRef.current;
-    if (!container) return;
+  const ProjectCard = ({ project, role }) => (
+    <div
+      className={cardClasses(role)}
+      style={{ minHeight: "320px" }}
+    >
+      <div>
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="text-xl font-header font-bold text-primary leading-tight">
+            {project.title}
+          </h3>
+        </div>
+        <p className="text-neutral-dark text-sm mb-4 font-body line-clamp-3 leading-relaxed">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.techStack.map((tech, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 bg-secondary/30 text-primary text-xs font-medium rounded-full border border-secondary"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
 
-    const cardWidth = container.offsetWidth / 3;
-    const scrollAmount = direction === "next" ? cardWidth : -cardWidth;
-
-    // Use built-in smooth scrolling for buttons
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToDot = (index) => {
-    const container = carouselRef.current;
-    if (!container) return;
-
-    const cardWidth = container.offsetWidth / 3;
-    // Calculate the position of this specific item in the middle set
-    // We target the middle set (offset by totalCount) to ensure we can scroll left/right freely from there
-    const targetPosition = (totalCount * cardWidth) + (index * cardWidth);
-    
-    container.scrollTo({
-      left: targetPosition,
-      behavior: "smooth",
-    });
-  };
+      {role === "center" && (
+        <div className="flex justify-between items-center mt-auto pt-2 border-t border-neutral-dark/10">
+          <div className="flex gap-2">
+            {project.hasGithub && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-2 px-4 py-2 bg-neutral-dark text-white text-sm rounded-lg hover:bg-accent transition-colors duration-200"
+              >
+                <FaGithub /> Source Code
+              </a>
+            )}
+            {project.externalLink && (
+              <a
+                href={project.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-2 px-4 py-2 bg-secondary text-primary text-sm rounded-lg hover:bg-accent hover:text-white transition-colors duration-200"
+              >
+                ↗ Visit Site
+              </a>
+            )}
+          </div>
+          <Link
+            to={project.detailsPage}
+            onClick={(e) => e.stopPropagation()}
+            className="ml-auto px-4 py-2 bg-primary text-white text-sm rounded-lg hover:bg-accent transition-colors duration-200"
+          >
+            Details →
+          </Link>
+        </div>
+      )}
+    </div>
+  );
 
   return (
-    <section id="projects" className="min-h-[100svh] flex flex-col items-center justify-start px-8 py-16">
+    <section
+      id="projects"
+      className="min-h-[100svh] flex flex-col items-center justify-start px-8 py-16"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="border-t border-neutral-dark w-3/4 mb-12" />
 
       <Link to="/projects_detailed" className="mb-12 text-center">
@@ -91,90 +127,67 @@ function Projects() {
         </h2>
       </Link>
 
-      <div className="relative w-full max-w-7xl">
-        {/* NOTE: 'scroll-smooth' is REMOVED from the class below. 
-           This prevents the shaking. We only use smooth behavior on button clicks.
-        */}
-        <div
-          ref={carouselRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto no-scrollbar gap-0 pb-4"
-        >
-          {extendedProjects.map((project, index) => (
-            <div
-              key={index}
-              // Enforce 3 cards view on Desktop (md:basis-1/3)
-              className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 p-3"
-            >
-              <div className="bg-white shadow-lg rounded-2xl p-6 border border-neutral-dark flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-2xl font-header font-bold text-primary mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-neutral-dark text-base mb-4 font-body line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-secondary text-white text-sm rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+      {/* Carousel */}
+      <div className="relative w-full max-w-5xl">
+        {/* Cards row */}
+        <div className="grid grid-cols-3 gap-4 items-center px-2">
+          {/* Left card — clicking it advances backward */}
+          <div
+            className="cursor-pointer"
+            onClick={() => advance("prev")}
+          >
+            <ProjectCard project={projects[left]} role="left" />
+          </div>
 
-                <div className="flex justify-between items-center mt-auto">
-                  {project.hasGithub && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-neutral-dark text-white rounded-lg hover:bg-accent transition"
-                    >
-                      <FaGithub /> Source Code
-                    </a>
-                  )}
-                  <Link
-                    to={project.detailsPage}
-                    className="ml-auto px-4 py-2 bg-primary text-white rounded-lg hover:bg-accent transition"
-                  >
-                    Details
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+          {/* Center card */}
+          <div>
+            <ProjectCard project={projects[center]} role="center" />
+          </div>
+
+          {/* Right card — clicking it advances forward */}
+          <div
+            className="cursor-pointer"
+            onClick={() => advance("next")}
+          >
+            <ProjectCard project={projects[right]} role="right" />
+          </div>
         </div>
 
-        {/* Arrows */}
+        {/* Arrow buttons */}
         <button
-          onClick={() => scrollByArrow("prev")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full hover:bg-accent shadow-lg z-10"
+          onClick={() => advance("prev")}
+          className="absolute -left-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-white rounded-full hover:bg-accent shadow-lg z-30 flex items-center justify-center transition-colors duration-200"
           aria-label="Previous"
         >
           &#8592;
         </button>
         <button
-          onClick={() => scrollByArrow("next")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full hover:bg-accent shadow-lg z-10"
+          onClick={() => advance("next")}
+          className="absolute -right-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-white rounded-full hover:bg-accent shadow-lg z-30 flex items-center justify-center transition-colors duration-200"
           aria-label="Next"
         >
           &#8594;
         </button>
+      </div>
 
-        {/* Dots */}
-        <div className="flex justify-center mt-4 gap-2">
-          {projects.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToDot(idx)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                current === idx ? "bg-primary" : "bg-secondary"
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
+      {/* Dots */}
+      <div className="flex justify-center mt-8 gap-2">
+        {projects.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => {
+              if (!isAnimating) {
+                setActiveIndex(idx);
+              }
+            }}
+            className={`rounded-full transition-all duration-300 ${
+              activeIndex === idx
+                ? "bg-primary w-6 h-3"
+                : "bg-secondary w-3 h-3"
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
       </div>
 
       <Link

@@ -1,10 +1,17 @@
 import React from "react";
 
+const stats = [
+  { number: "3", label: "Minors" },
+  { number: "4", label: "Internships" },
+  { number: "6+", label: "Projects" },
+  { number: "3.75", label: "GPA" },
+];
+
 function About() {
   return (
     <section
       id="about"
-      className="h-screen snap-start flex flex-col items-center justify-start px-8 py-16"
+      className="min-h-screen flex flex-col items-center justify-start px-8 py-16"
     >
       {/* Horizontal Divider */}
       <div className="border-t border-neutral-dark w-3/4 mb-12" />
@@ -41,33 +48,65 @@ function About() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Right: Text + Stats */}
+        <div className="md:w-2/3 w-full flex flex-col gap-6">
+          <div className="text-lg md:text-xl font-body text-neutral-dark leading-relaxed">
+            <p>
+              Welcome! I'm Sophie. I'm a senior at the University of Michigan
+              studying Computer Science with minors in Math, Statistics, and
+              Multidisciplinary Design. I'm passionate about using analytical
+              thinking to solve complex problems in medicine and energy.
+            </p>
+            <br />
+            <p>
+              My technical background and personal interests have taken me from
+              designing low-cost medical devices, to building machine learning
+              models for genetics, to developing financial strategy for
+              Michigan's largest lavender farm. In my professional life, I've
+              worked across ops at an ed-tech startup, webdev for an energy
+              nonprofit, and most recently, pharma-retail product optimization
+              at BCG.
+            </p>
+            <br />
+            <p>
+              I thrive in dynamic, collaborative settings, and outside of work,
+              you'll find me reading memoirs, running by the lake, bringing
+              baked goods to friends, or listening to country music. I'm looking
+              to join an interdisciplinary team where I can model, build, and
+              drive impact.
+            </p>
           </div>
 
-        {/* Right: Text */}
-        <div className="md:w-2/3 w-full text-lg md:text-xl font-body text-neutral-dark leading-relaxed">
-          <p>
-            Welcome! I'm Sophie. I'm a recent graduate at the University of Michigan
-            studying Computer Science with minors in Math, Statistics, and
-            Multidisciplinary Design. I’m passionate about using analytical 
-            thinking to solve complex problems in medicine and energy.
-          </p>
-          <br />
-          <p>
-            My technical background and personal interests have taken me from 
-            designing low-cost medical devices, to building machine learning 
-            models for genetics, to developing financial strategy for Michigan’s 
-            largest lavender farm. In my professional life, I've worked across ops
-            at an ed-tech startup, webdev for an energy nonprofit, and most 
-            recently, pharma-retail product optimization at BCG. 
-            </p>
-          <br />
-          <p>
-            I thrive in dynamic, collaborative settings, 
-            and outside of work, you'll find me reading memoirs, running by the
-             lake, bringing baked goods to friends, 
-            or listening to country music. I’m looking to join an interdisciplinary 
-            team where I can model, build, and drive impact.
-          </p>
+          {/* Stats row */}
+          <div className="grid grid-cols-4 gap-4 mt-2 pt-6 border-t border-neutral-dark/15">
+            {stats.map(({ number, label }) => (
+              <div key={label} className="flex flex-col items-center text-center group">
+                <span className="text-3xl md:text-4xl font-header font-bold text-primary group-hover:text-accent transition-colors duration-300">
+                  {number}
+                </span>
+                <span className="text-xs md:text-sm font-body text-neutral-dark/70 uppercase tracking-widest mt-1">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Interest chips */}
+          <div className="flex flex-wrap gap-2 mt-2">
+            {["Machine Learning", "Biomedical Devices", "Energy Systems", "Product Design", "Data Science"].map(
+              (tag, i) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-sm font-body rounded-full border border-secondary text-primary bg-secondary/20 hover:bg-secondary hover:text-white transition-colors duration-200"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
         </div>
       </div>
     </section>
