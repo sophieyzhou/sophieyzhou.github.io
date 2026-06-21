@@ -54,10 +54,10 @@ function About() {
         <div className="md:w-2/3 w-full flex flex-col gap-6">
           <div className="text-lg md:text-xl font-body text-neutral-dark leading-relaxed">
             <p>
-              Welcome! I'm Sophie. I'm a senior at the University of Michigan
-              studying Computer Science with minors in Math, Statistics, and
-              Multidisciplinary Design. I'm passionate about using analytical
-              thinking to solve complex problems in medicine and energy.
+              Welcome! I'm Sophie. I'm University of Michigan graduate with a 
+              B.S.E in Computer Science and minors in Math and Statistics. 
+              I'm passionate about using analytical thinking to solve complex 
+              problems across medicine, energy, and agriculture.
             </p>
             <br />
             <p>
@@ -67,7 +67,7 @@ function About() {
               Michigan's largest lavender farm. In my professional life, I've
               worked across ops at an ed-tech startup, webdev for an energy
               nonprofit, and most recently, pharma-retail product optimization
-              at BCG.
+              at BCG, where I'm currently an associate. 
             </p>
             <br />
             <p>
