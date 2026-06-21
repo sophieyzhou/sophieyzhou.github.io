@@ -26,7 +26,7 @@ const Education = () => {
         "Linear Algebra",
         "Probability",
         "Regression Analysis",
-        "Mathematical Biology",
+        "Applied Differential Equations for Biology",
         "Bayesian Statistics",
       ],
       justForFun: [
@@ -35,6 +35,7 @@ const Education = () => {
         "Black Hole Astrophysics",
         "Poetry of the Global South",
         "Intro to Contemporary Dance",
+        "Intermediate Flute Studio",
       ],
     },
   };
